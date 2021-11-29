@@ -140,19 +140,20 @@ var upperCaseFruits = function(fruits) {
   _.map(fruits, function(fruit) {
     return fruit.toUpperCase();
   });
-
 };
 
 // given an array of dessert objects, return a new array of objects
 // that have a new "glutenFree" property, with a boolean value.
 // TIP: Items that contain flour are not gluten-free.
 var glutenFree = function(desserts) {
-  return _.map(desserts, function(dessert) {
-    console.log(dessert.ingredients.indexOf('flour') !== -1);
-    if (dessert.ingredients.indexOf('flour') !== -1) {
+  _.map(desserts, function(dessert) {
+    if (dessert.ingredients.indexOf('flour') === -1) {
       dessert.glutenFree = true;
+    } else {
+      dessert.glutenFree = false;
     }
   });
+  return desserts;
 };
 
 // use _.map to return an array of items with their sale prices, with a new property
@@ -176,5 +177,10 @@ var glutenFree = function(desserts) {
 
 */
 var applyCoupon = function(groceries, coupon) {
-
+  _.map(groceries, function(item) {
+    var toNumber = Number(item.price.slice(1));
+    var salePrice = Math.floor((toNumber - (toNumber * coupon)) * 100) / 100;
+    item.salePrice = '$' + salePrice;
+  });
+  return groceries;
 };

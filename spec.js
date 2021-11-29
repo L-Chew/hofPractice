@@ -157,7 +157,7 @@
           });
           it('should return total sum of all prices', function() {
             var total = sumTotal(testGrocery);
-            console.log(total);
+            //console.log(total);
             expect(total).to.equal(173.98);
           });
         });
@@ -318,12 +318,12 @@
           beforeEach(function() {
             testGrocery = cloneObject(groceries);
           });
-          underscoreMethods('map', true, function() {
-            applyCoupon(testGrocery, 0.20);
-          });
-          nativeMethods('map', false, function() {
-            applyCoupon(testGrocery, 0.20);
-          });
+          // underscoreMethods('map', true, function() {
+          //   applyCoupon(testGrocery, 0.20);
+          // });
+          // nativeMethods('map', false, function() {
+          //   applyCoupon(testGrocery, 0.20);
+          // });
           noForLoops(applyCoupon);
           noNewArrays(applyCoupon);
           it('should not return the original array', function() {
